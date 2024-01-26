@@ -98,9 +98,19 @@ button:focus {
 /* styles.css */
 .hamburger-button {
   display: none;
+  position: relative;
+  background-color: #e7e7e7; 
+  color: black;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
+}
+
+.hamburger-button span {
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
 }
 
