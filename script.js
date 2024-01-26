@@ -138,3 +138,17 @@ document.getElementById("jumpToTop").onclick = function() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+  var hamburgerButton = document.getElementById('hamburgerButton');
+  var tocContainer = document.getElementById('toc');
+
+  hamburgerButton.addEventListener('click', function () {
+    // Toggle TOC visibility
+    if (tocContainer.style.display === 'block') {
+      tocContainer.style.display = 'none';
+    } else {
+      tocContainer.style.display = 'block';
+    }
+  });
+});
