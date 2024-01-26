@@ -12,28 +12,6 @@ function handleFileInputChange() {
     }
 }
 
-function fetchJSONFromURL(url) {
-    setLoading(true);
-    fetch(url)
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        })
-        .then(jsonObject => {
-            buildTOC(jsonObject);
-        })
-        .catch(error => {
-            alert("Error fetching JSON. Make sure the URL is correct and the server supports CORS.");
-            console.error("Fetch error:", error);
-        })
-        .finally(() => {
-            setLoading(false);
-        });
-}
-
 function resetPage() {
     tocList.innerHTML = ""; // Clear previous TOC
     textContent.innerHTML = ""; // Clear previous content
@@ -53,7 +31,7 @@ function readFile(file) {
                 resetPage();
             }
         } catch (error) {
-            alert("Invalid JSON file.");
+            alert("Invalid JSON file. Only Foundry VTT journal export JSON file is supported, and please ensure it contains a array named \"pages\".");
             console.error("Parsing error:", error);
         }
     };
