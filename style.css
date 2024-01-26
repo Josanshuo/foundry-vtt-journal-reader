@@ -10,6 +10,7 @@ body {
 }
 
 #toc {
+    display: block;
     position: sticky; /* or use 'fixed' if you want it to be stuck on the top of the viewport */
     top: 0;
     min-width: 300px;
@@ -93,3 +94,12 @@ button:focus {
 #jumpToTop:hover {
     background-color: #555; /* Slightly darken the button on hover */
 }
+
+/* styles.css */
+.hamburger-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
