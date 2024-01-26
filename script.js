@@ -1,6 +1,7 @@
 const fileInput = document.getElementById('fileInput');
 const tocList = document.getElementById('tocList');
 const textContent = document.getElementById('textContent');
+const hamburgerButton = document.getElementById('hamburgerButton');
 
 fileInput.addEventListener('change', handleFileInputChange);
 
@@ -39,7 +40,12 @@ function readFile(file) {
         const contents = e.target.result;
         try {
             const json = JSON.parse(contents);
-            buildTOC(json.pages);
+            if(json && json.pages.length > 0) {
+                hamburgerButton.style.display = 'block';
+                buildTOC(json.pages);
+            } else {
+                hamburgerButton.style.display = 'none';
+            }
         } catch (error) {
             alert("Invalid JSON file.");
             console.error("Parsing error:", error);
@@ -140,15 +146,10 @@ document.getElementById("jumpToTop").onclick = function() {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  var hamburgerButton = document.getElementById('hamburgerButton');
   var tocContainer = document.getElementById('toc');
 
   hamburgerButton.addEventListener('click', function () {
     // Toggle TOC visibility
-    if (tocContainer.style.display === 'block') {
-      tocContainer.style.display = 'none';
-    } else {
-      tocContainer.style.display = 'block';
-    }
+    tocContainer.style.display = tocContainer.style.display === 'block' ? 'none' : 'block';
   });
 });
