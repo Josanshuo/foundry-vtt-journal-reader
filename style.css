@@ -12,14 +12,14 @@ body {
 #toc {
     position: sticky; /* or use 'fixed' if you want it to be stuck on the top of the viewport */
     top: 0;
-    min-width: 250px;
+    min-width: 300px;
     max-height: 100vh; /* Full height viewport */
     overflow-y: auto; /* Enable vertical scroll on overflow */
     z-index: 10; /* Ensure it's above other content */
 }
 
 #content {
-    margin-left: 100px; /* Make room for the TOC if it's fixed. Adjust as needed for your layout */
+    margin-left: 50px; /* Make room for the TOC if it's fixed. Adjust as needed for your layout */
     padding: 20px; /* Padding for readability */
     flex-grow: 1;
     /* For smooth scrolling to work with anchors, set the scrolling behavior */
