@@ -34,6 +34,11 @@ function fetchJSONFromURL(url) {
         });
 }
 
+function resetPage() {
+    tocList.innerHTML = ""; // Clear previous TOC
+    textContent.innerHTML = ""; // Clear previous content
+}
+
 function readFile(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -45,6 +50,7 @@ function readFile(file) {
                 buildTOC(json.pages);
             } else {
                 hamburgerButton.style.display = 'none';
+                resetPage();
             }
         } catch (error) {
             alert("Invalid JSON file.");
@@ -55,8 +61,7 @@ function readFile(file) {
 }
 
 function buildTOC(jsonArray) {
-    tocList.innerHTML = ""; // Clear previous TOC
-    textContent.innerHTML = ""; // Clear previous content
+    resetPage();
 
     jsonArray.forEach((item, index) => {
         // Create a list item for each section
