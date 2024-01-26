@@ -98,7 +98,7 @@ button:focus {
 /* styles.css */
 .hamburger-button {
   display: none;
-  position: relative;
+  position: sticky;
   background-color: #e7e7e7; 
   color: black;
   background: none;
