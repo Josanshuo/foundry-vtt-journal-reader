@@ -54,11 +54,12 @@ function buildTOC(jsonArray) {
 
     jsonArray.forEach((item, index) => {
         // Create a list item for each section
+        let title = item.name;
         let li = document.createElement('li');
         let a = document.createElement('a');
-        let aid = generateIdFromText(item.name);
+        let aid = generateIdFromText(title);
         a.href = `#${aid}`;
-        a.textContent = item.name;
+        a.textContent = title;
         a.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent the default anchor link behavior
             document.getElementById(aid).scrollIntoView({
@@ -69,9 +70,13 @@ function buildTOC(jsonArray) {
         //li.onclick = function() { displayContent(item.content); };
         tocList.appendChild(li);
 
+        const section = document.createElement('h1');
+        section.id = aid;
+        section.textContent = title;
+        textContent.appendChild(section);
+        
         // Add the section content to `textContent`
         const contentDiv = document.createElement('div');
-        contentDiv.id = aid;
         contentDiv.innerHTML = item.text.content;
         textContent.appendChild(contentDiv);
 
