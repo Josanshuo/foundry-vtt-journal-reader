@@ -105,12 +105,16 @@ button:focus {
   border: none;
   font-size: 24px;
   cursor: pointer;
+  max-height: 35px;
+  min-weight: 25px;
 }
 
 .hamburger-button span {
     display: block;
+    /*
     position: absolute;
     top:0;
     left:0;
+    */
 }
 
