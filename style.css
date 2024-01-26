@@ -97,6 +97,7 @@ button:focus {
 
 /* styles.css */
 .hamburger-button {
+  display: none;
   background: none;
   border: none;
   font-size: 24px;
